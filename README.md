@@ -1,80 +1,117 @@
-# Detection-demotions-Faciales
+# Facial Emotion Detection API
 
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)](https://www.tensorflow.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
-
-## Objectif du projet
-
-
-## Structure du projet
-```
-emotion_api/
-│
-├── DL/                          
-│   ├── detect_and_predict.py     
-│   ├── emotion_cnn_model.ipynb  
-│   ├── emotion_cnn_model.keras   
-│   ├── haarcascade.xml           
-│   └── data/                     
-│       ├── train/                
-│       └── test/                
-├── models/                       
-│   └── model
-│
-├── test/                        
-│   └── test_main.py
-│
-├── .env                         
-├── .gitignore                     
-├── config.py                     
-├── database.py                  
-├── main.py                       
-├── README.md                       
-└── requirements.txt               
-
-```
-
+A robust web service for real-time facial emotion recognition. This project leverages a Convolutional Neural Network (CNN) to classify facial expressions from uploaded images and stores the results in a PostgreSQL database.
 
 ---
 
-## Installation
+## 🚀 Features
 
-1. Cloner le dépôt GitHub :  
+- **Face Detection**: Utilizes OpenCV's Haar Cascade to accurately locate faces in images.
+- **Emotion Recognition**: Classifies faces into 7 categories: `Angry`, `Disgust`, `Fear`, `Happy`, `Neutral`, `Sad`, and `Surprised`.
+- **API Endpoints**:
+    - `POST /predict_emotion`: Upload an image (JPEG/PNG) to get an instant emotion prediction.
+    - `GET /predictions`: Retrieve a history of all analyzed images and their predicted emotions.
+- **Database Integration**: Automatically stores prediction results, confidence scores, and timestamps using SQLAlchemy.
 
-```shell
-    git https://github.com/elhidarinouhayla/D-tection-d-motions-Faciales.git
-    cd project
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: FastAPI
+- **Deep Learning**: TensorFlow, Keras, OpenCV
+- **Database**: PostgreSQL (SQLAlchemy ORM)
+- **Data Processing**: NumPy, Pandas, Matplotlib
+
+---
+
+## 📂 Project Structure
+
+```text
+.
+├── DL/                     # Deep Learning components
+│   ├── detect_and_predict.py # Emotion detection logic
+│   ├── emotion_cnn_model.keras # Pre-trained CNN model
+│   ├── haarcascade.xml      # Haar Cascade for face detection
+│   └── emotion_cnn_model.ipynb # Training notebook
+├── models/                 # Database & API schemas
+│   └── model.py            # SQLAlchemy & Pydantic models
+├── config.py               # Environment configuration
+├── database.py             # Database connection setup
+├── main.py                 # FastAPI application entry point
+├── requirements.txt        # Project dependencies
+└── README.md               # Project documentation
 ```
 
-2. Créer un environnement virtuel :
+---
 
- - Linux / Mac :
-```shell
-    python -m venv venv
-    source venv/bin/activate
-```
- - Windows :
-```shell
-    python -m venv venv
-    venv\Scripts\activate
+## ⚙️ Installation & Setup
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/elhidarinouhayla/Facial-Emotion-Detection.git
+cd Facial-Emotion-Detection
 ```
 
-3. Installer les dépendances :
-
-```shell
-    pip install -r requirements.txt
+### 2. Configure Environment Variables
+Create a `.env` file in the root directory with your PostgreSQL credentials:
+```env
+USER=your_db_user
+PASSWORD=your_db_password
+HOST=localhost
+PORT=5432
+DATABASE=facial_emotion_db
 ```
 
-4. Lancer l’API en mode développement :
-
-```shell
-    uvicorn main:app --reload
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
 ```
 
- - L’API sera accessible à l’adresse : http://127.0.0.1:8000
+### 4. Run the Application
+```bash
+uvicorn main:app --reload
+```
+The API will be available at `http://localhost:8000`. You can access the interactive documentation at `http://localhost:8000/docs`.
 
- - Documentation interactive Swagger : http://127.0.0.1:8000/docs
+---
 
-Astuce : Le paramètre --reload permet à l’API de se mettre à jour automatiquement à chaque modification du code, très pratique pour le développement.
+## 📡 API Usage
 
+### Predict Emotion
+- **Endpoint**: `/predict_emotion`
+- **Method**: `POST`
+- **Payload**: Form-data with key `file` (Image)
+- **Response**:
+```json
+{
+  "id": 1,
+  "emotion": "happy",
+  "confidence": 98.45,
+  "created_at": "2024-04-08T12:00:00Z"
+}
+```
 
-## 🧠 Partie deep learning
+### Get All Predictions
+- **Endpoint**: `/predictions`
+- **Method**: `GET`
+- **Response**: List of prediction records.
+
+---
+
+## 🧪 Testing
+
+To run the tests:
+```bash
+pytest
+```
+
+---
+
+## 👤 Author
+
+**Nouhayla El Hidari**
+- GitHub: [@elhidarinouhayla](https://github.com/elhidarinouhayla)
