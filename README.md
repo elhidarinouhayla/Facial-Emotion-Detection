@@ -4,10 +4,6 @@
 
 ## Objectif du projet
 
-Les maladies cardiovasculaires sont la première cause de mortalité dans le monde, responsables de 17,9 millions de décès par an.
-
-L’objectif de ce projet est de fournir une API capable d’estimer le risque de maladie cardiovasculaire d’un patient à partir de ses données cliniques.
-
 
 ## Structure du projet
 ```
