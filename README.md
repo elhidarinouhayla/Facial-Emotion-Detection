@@ -1,14 +1,11 @@
 # Facial Emotion Detection API
 
-[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
-[![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white)](https://www.tensorflow.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
 A robust web service for real-time facial emotion recognition. This project leverages a Convolutional Neural Network (CNN) to classify facial expressions from uploaded images and stores the results in a PostgreSQL database.
 
 ---
 
-## 🚀 Features
+##  Features
 
 - **Face Detection**: Utilizes OpenCV's Haar Cascade to accurately locate faces in images.
 - **Emotion Recognition**: Classifies faces into 7 categories: `Angry`, `Disgust`, `Fear`, `Happy`, `Neutral`, `Sad`, and `Surprised`.
@@ -19,7 +16,7 @@ A robust web service for real-time facial emotion recognition. This project leve
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Framework**: FastAPI
 - **Deep Learning**: TensorFlow, Keras, OpenCV
@@ -28,7 +25,7 @@ A robust web service for real-time facial emotion recognition. This project leve
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 .
@@ -48,7 +45,7 @@ A robust web service for real-time facial emotion recognition. This project leve
 
 ---
 
-## ⚙️ Installation & Setup
+##  Installation & Setup
 
 ### 1. Clone the repository
 ```bash
@@ -79,7 +76,7 @@ The API will be available at `http://localhost:8000`. You can access the interac
 
 ---
 
-## 📡 API Usage
+##  API Usage
 
 ### Predict Emotion
 - **Endpoint**: `/predict_emotion`
@@ -102,7 +99,7 @@ The API will be available at `http://localhost:8000`. You can access the interac
 
 ---
 
-## 🧪 Testing
+##  Testing
 
 To run the tests:
 ```bash
@@ -110,8 +107,3 @@ pytest
 ```
 
 ---
-
-## 👤 Author
-
-**Nouhayla El Hidari**
-- GitHub: [@elhidarinouhayla](https://github.com/elhidarinouhayla)
