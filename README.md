@@ -1,4 +1,4 @@
-# Facial Emotion Detection API
+# Facial Emotion Detection
 
 
 A robust web service for real-time facial emotion recognition. This project leverages a Convolutional Neural Network (CNN) to classify facial expressions from uploaded images and stores the results in a PostgreSQL database.
